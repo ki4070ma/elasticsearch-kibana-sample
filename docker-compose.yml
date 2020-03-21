@@ -39,6 +39,18 @@ services:
     networks:
       - esnet
 
+  kibana01:
+    build: ./kibana
+    container_name: kibana01
+    links:
+      - es01:elasticsearch
+    ports:
+      - 5601:5601
+    networks:
+      - esnet
+#    environment:
+#      - "I18N_LOCALE=ja-JP"
+
 volumes:
   esdata01:
     driver: local
